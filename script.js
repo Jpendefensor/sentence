@@ -24,7 +24,7 @@ function calculate() {
   }
 
   const totalDays = years * 365;
-  const preConduct50 = preActual * 0.5;
+  const preConduct50 = preActual // * 0.5; // not 50% of the original. 50% of the result after credit is added
   const preCredit50 = preActual + preConduct50;
   const preConduct15 = preActual * 0.15;
   const preCredit15 = preActual + preConduct15;
@@ -99,19 +99,25 @@ function calculate() {
       </tr>
 
       <tr class="dark-green-row">
-          <td>Post-sentence Credit Rate (%) Serve 80%<br>(15% credit)</td><td>${(rem15 * 0.8).toFixed(0)}</td>
-          <td>${toMonthsYears(rem15 * 0.8).months}</td>
-          <td>${toMonthsYears(rem15 * 0.8).years}</td>
-          <td>${formatDateFromToday(rem15 * 0.8)}</td>
+          <td>Post-sentence Credit Rate (%) Serve 85%<br>(15% credit)</td>
+          <td>${(rem15 * 0.85).toFixed(0)}</td>
+          <td>${toMonthsYears(rem15 * 0.85).months}</td>
+          <td>${toMonthsYears(rem15 * 0.85).years}</td>
+          <td>${formatDateFromToday(rem15 * 0.85)}</td>
       </tr>
 
-      <tr class="dark-green-row"><td>Post-sentence Credit Rate (%) Serve 15%<br>(15% credit)</td><td>${(rem15 * 0.5).toFixed(0)}</td>
-          <td>${toMonthsYears(rem15 * 0.5).months}</td><td>${toMonthsYears(rem15 * 0.5).years}</td>
-          <td>${formatDateFromToday(rem15 * 0.5)}</td></tr>
+      <tr class="dark-green-row"><td>Post-sentence Credit Rate (%) Serve 66.6%<br>(15% credit)</td>
+          <td>${(rem15 * 0.666).toFixed(0)}</td>
+          <td>${toMonthsYears(rem15 * 0.666).months}</td>
+          <td>${toMonthsYears(rem15 * 0.666).years}</td>
+          <td>${formatDateFromToday(rem15 * 0.666)}</td></tr>
 
-      <tr class="dark-green-row"><td>Post-sentence Credit Rate (%) Serve 33.3 % <br>(15% credit)</td><td>${(rem15 * 0.333).toFixed(0)}</td>
-          <td>${toMonthsYears(rem15 * 0.333).months}</td><td>${toMonthsYears(rem15 * 0.333).years}</td>
-          <td>${formatDateFromToday(rem15 * 0.333)}</td></tr>
+      <tr class="dark-green-row"><td>Post-sentence Credit Rate (%) Serve 50% <br>(15% credit)</td>
+          <td>${(rem15 * 0.5).toFixed(0)}</td>
+          <td>${toMonthsYears(rem15 * 0.5).months}</td>
+          <td>${toMonthsYears(rem15 * 0.5).years}</td>
+          <td>${formatDateFromToday(rem15 * 0.5)}</td>
+      </tr>
           
       <tr><th></th><th></th><th></th><th></th><th></th></tr>
     </table>
