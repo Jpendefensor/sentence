@@ -35,7 +35,7 @@ function calculate() {
   const results = `
     <table>
       <tr><th>Calculation Step</th><th>Days</th><th>Months</th><th>Years</th><th>Credit calculation from today</th></tr>
-      <tr><td>Total Sentence</td><td>${totalDays}</td><td>${years * 12}</td><td>${years}</td><td>—</td></tr>
+      <tr><td>Total Sentence</td><td>${totalDays}</td><td>${years * 12}</td><td>${years}</td><td>${formatDateFromToday(totalDays)}</td></tr>
 
       <tr><th></th><th></th><th></th><th></th><th></th></tr>
 
@@ -43,7 +43,7 @@ function calculate() {
          <td>Pre-sentence Conduct Credit (Days) 50%</td><td>${preConduct50.toFixed(0)}</td>
          <td>${toMonthsYears(preConduct50).months}</td>
          <td>${toMonthsYears(preConduct50).years}</td>
-         <td>${formatDateFromToday(preConduct50)}</td>
+         <td></td>
       </tr>
       <tr class="light-blue-row">
          <td><b>Total Pre-sentence Credit (Days) 50%</b></td>
@@ -77,20 +77,41 @@ function calculate() {
 
       <tr><th></th><th></th><th></th><th></th><th></th></tr>
 
-      <tr class="green-row"><td>Pre-sentence Conduct Credit (Days)</td><td>${preConduct15.toFixed(0)}</td><td>—</td><td>—</td><td>—</td></tr>
-      <tr class="green-row"><td>Total Pre-sentence Credit (Days)</td><td>${preCredit15.toFixed(0)}</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr class="light-green-row">
+         <td>Pre-sentence Conduct Credit (Days) 15%</td><td>${preConduct15.toFixed(0)}</td>
+         <td>${toMonthsYears(preConduct15).months}</td>
+         <td>${toMonthsYears(preConduct15).years}</td>
+         <td></td>
+      </tr>
+      <tr class="light-green-row">
+         <td><b>Total Pre-sentence Credit (Days) 15%</b></td>
+         <td>${preCredit15.toFixed(0)}</td>
+         <td>${toMonthsYears(preCredit15).months}</td>
+         <td>${toMonthsYears(preCredit15).years}</td>
+         <td></td>
+      </tr>
 
-      <tr class="dark-green-row"><td>Remaining Sentence @ 85%<br>(15% credit)</td><td>${(rem15 * 0.85).toFixed(0)}</td>
-          <td>${toMonthsYears(rem15 * 0.85).months}</td><td>${toMonthsYears(rem15 * 0.85).years}</td>
-          <td>${formatDateFromToday(rem15 * 0.85)}</td></tr>
+      <tr class="green-row">
+          <td><b>Remaining Sentence After Pre-sentence Credit (Days) 15%</b></td><td>${rem15.toFixed(0)}</td>
+          <td>${toMonthsYears(rem15).months}</td>
+          <td>${toMonthsYears(rem15).years}</td>
+          <td>${formatDateFromToday(rem15)}</td>
+      </tr>
 
-      <tr class="dark-green-row"><td>Remaining Sentence @ 66.6%<br>(15% credit)</td><td>${(rem15 * 0.666).toFixed(0)}</td>
-          <td>${toMonthsYears(rem15 * 0.666).months}</td><td>${toMonthsYears(rem15 * 0.666).years}</td>
-          <td>${formatDateFromToday(rem15 * 0.666)}</td></tr>
+      <tr class="dark-green-row">
+          <td>Post-sentence Credit Rate (%) Serve 80%<br>(15% credit)</td><td>${(rem15 * 0.8).toFixed(0)}</td>
+          <td>${toMonthsYears(rem15 * 0.8).months}</td>
+          <td>${toMonthsYears(rem15 * 0.8).years}</td>
+          <td>${formatDateFromToday(rem15 * 0.8)}</td>
+      </tr>
 
-      <tr class="dark-green-row"><td>Remaining Sentence @ 50%<br>(15% credit)</td><td>${(rem15 * 0.5).toFixed(0)}</td>
+      <tr class="dark-green-row"><td>Post-sentence Credit Rate (%) Serve 15%<br>(15% credit)</td><td>${(rem15 * 0.5).toFixed(0)}</td>
           <td>${toMonthsYears(rem15 * 0.5).months}</td><td>${toMonthsYears(rem15 * 0.5).years}</td>
           <td>${formatDateFromToday(rem15 * 0.5)}</td></tr>
+
+      <tr class="dark-green-row"><td>Post-sentence Credit Rate (%) Serve 33.3 % <br>(15% credit)</td><td>${(rem15 * 0.333).toFixed(0)}</td>
+          <td>${toMonthsYears(rem15 * 0.333).months}</td><td>${toMonthsYears(rem15 * 0.333).years}</td>
+          <td>${formatDateFromToday(rem15 * 0.333)}</td></tr>
           
       <tr><th></th><th></th><th></th><th></th><th></th></tr>
     </table>
